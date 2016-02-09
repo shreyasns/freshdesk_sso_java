@@ -34,10 +34,10 @@ public class FDHmac
     }
 
     private static String getHMACHash(String name,String email,long timeInMillis) throws Exception {
-        byte[] keyBytes = sharedSecret.getBytes();
+        byte[] keyBytes = sharedSecret.getBytes(StandardCharsets.UTF_8);
         String movingFact =name+email+timeInMillis;
-        byte[] text = movingFact.getBytes();
-        
+        byte[] text = movingFact.getBytes(StandardCharsets.UTF_8);
+
         String hexString = "";
         Mac hmacMD5;
         try {
